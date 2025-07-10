@@ -4,8 +4,8 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
       POSTGRES_DB: airbnb_development
   web:
     image: ruby:3.4.4
@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/airbnb_development
+      DATABASE_URL: postgres://test:test@db:5432/airbnb_development
 
 volumes:
   pgdata:
