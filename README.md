@@ -1,3 +1,4 @@
 # README
 
-
+# NOTES
+  Refreshing Rails
