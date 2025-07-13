@@ -6,6 +6,39 @@ on:
     branches: [ main ]
 
 jobs:
+  rspec:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres12345
+          POSTGRES_DB: test_db
+        options: >-
+          --health-cmd "pg_isready"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        run: docker-compose up -d --build
+
+      - name: Wait for DB (optional)
+        run: |
+          echo "Waiting for DB to be ready..."
+          sleep 10
+
+      - name: Run RSpec inside container
+        run: docker-compose exec -T app bundle exec rspec
+
   scan_ruby:
     runs-on: ubuntu-latest
 
