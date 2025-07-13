@@ -44,7 +44,7 @@ jobs:
         run: docker compose up -d --build
 
       - name: Run RSpec
-        run: docker compose exec --rm web bundle exec rspec
+        run: docker compose exec web bundle exec rspec
 
   scan_ruby:
     runs-on: ubuntu-latest
