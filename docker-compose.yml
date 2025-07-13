@@ -1,13 +1,15 @@
 services:
   db:
+    container_name: airbnb_db
     image: postgres:15
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: test
       POSTGRES_USER: test
-      POSTGRES_DB: airbnb_development
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: airbnb_clone_development
   web:
+    container_name: airbnb_web
     image: ruby:3.4.4
     working_dir: /app
     command: bash -c "bundle install && rails server -b 0.0.0.0"
@@ -18,7 +20,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://test:test@db:5432/airbnb_development
+      DATABASE_URL: postgres://test:test@db:5432/airbnb_clone_development
 
 volumes:
   pgdata:
