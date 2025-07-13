@@ -37,11 +37,11 @@ jobs:
       - name: Use test env file
         run: cp .env.test .env
 
-      - name: Install gems
-        run: docker compose run --rm web bundle install
-
       - name: Build and start containers
         run: docker compose up -d --build
+        
+      - name: Install gems
+        run: docker compose exec web bundle install 
 
       - name: Run RSpec
         run: docker compose exec web bundle exec rspec
