@@ -3,13 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 */
-@import "./_color.scss";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 /* fix issues found on https://github.com/rails/tailwindcss-rails/issues/133 */
-
+@import "./_color.scss";
 @import "./_header.scss";
-
