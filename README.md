@@ -1,4 +1,4 @@
 # README
 
 # NOTES
-  Refreshing Rails
+  Refreshing Rails 8
