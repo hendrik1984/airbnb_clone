@@ -43,6 +43,9 @@ jobs:
       - name: Install gems
         run: docker compose exec web bundle install 
 
+      - name: Asset precompile
+        run : docker compose exec web bundle exec rake assets:precompile
+        
       - name: Run RSpec
         run: docker compose exec web bundle exec rspec
 
