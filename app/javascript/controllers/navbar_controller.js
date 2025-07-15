@@ -5,9 +5,9 @@ export default class extends Controller {
     console.log("connected navbar!")
   }
   
-//   toggle() {
-//     const div = document.getElementById("navbar_home");
-//     console.log(div);
-//     div.classList.toggle('hidden');
-//   }
+  toggle() {
+    const div = document.getElementById("menu-dropdown-items");
+    console.log(div);
+    div.classList.toggle('hidden');
+  }
 }
