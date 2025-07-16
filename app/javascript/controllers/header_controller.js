@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { enter, leave, toggle } from 'el-transition'
 
 export default class extends Controller {
-  static targets = ['openUserMenu'];
+  static targets = ['openUserMenu', 'userAuthLink'];
 
   connect() {
     // console.log("connected header!")
@@ -10,13 +10,14 @@ export default class extends Controller {
     // console.log('leave: ', leave);
     // console.log('toggle: ', toggle);
     this.openUserMenuTarget.addEventListener('click', this.toggleDropdownMenu);
+    
+    this.userAuthLinkTargets.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('modal-trigger').click();
+      });
+    });
   }
-  
-  // toggle {
-  //   const div = document.getElementById("menu-dropdown-items");
-  //   // console.log(div);
-  //   div.classList.toggle('hidden');
-  // }
 
   toggleDropdownMenu() {
     toggle(document.getElementById('menu-dropdown-items'));

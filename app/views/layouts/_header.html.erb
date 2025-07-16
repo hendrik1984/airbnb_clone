@@ -1,5 +1,5 @@
 <header class="nav-header">
-    <div class="max-w-full mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+    <div class="max-w-full mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8" data-controller="header">
         <div class="relative h-16 flex justify-between nav-container">
             <div class="relative z-10 px-2 flex lg:px-0">
                 <div class="flex-shrink-0 flex items-center">
@@ -65,7 +65,6 @@
                         id="user-menu-button" 
                         aria-expanded="false" 
                         aria-haspopup="true"
-                        data-controller="header"
                         data-header-target="openUserMenu"
                         >
                         <span class="absolute -inset-1.5"></span>
@@ -100,25 +99,13 @@
                     
                         <!-- Active: "bg-gray-100", Not Active: "" -->
                         <div class="py-1" role="none">
-                            <span>SIGN IN</span>
-                        <!--
-                        <% if user_signed_in? %>
-                            <%= link_to "My Profile", profile_path(current_user.profile), class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" %>
-                            <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" %>
-                        <% else %>
-                            <%= link_to "Sign Up", new_user_registration_path, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" %>
-                            <%= link_to "Log in", new_user_session_path, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" %>
-                        <% end %>
-                        <div class="py-1" role="none">
-                            <% if user_signed_in? && !current_user.host? %>
-                            <%= link_to "Host your home", hostify_path(user_id: current_user.id), data: { "turbo-method": :put }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
-                            <% elsif user_signed_in? && current_user.host? %>
-                            <%= link_to "Host Dashboard", host_dashboard_path, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
-                            <% elsif !user_signed_in? %>
-                            <%= link_to "Host your home", new_user_registration_path, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
-                            <% end %>
+                            <a href="#" data-header-target="userAuthLink" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menu-item" tabindex="-1" id="user-menu-item-0">Sign up</a>
+                            <a href="#" data-header-target="userAuthLink" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menu-item" tabindex="-1" id="user-menu-item-1">Login</a>
                         </div>
-                        -->
+                        <div class="py-1" role="none">
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menu-item" tabindex="-1" id="user-menu-item-0">Host your home</a>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menu-item" tabindex="-1" id="user-menu-item-1">Host your experience</a>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" role="menu-item" tabindex="-1" id="user-menu-item-2">Help</a>
                         </div>
                     </div>
                 </div>
