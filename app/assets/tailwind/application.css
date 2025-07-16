@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+@import "../stylesheets/_color.scss";
+@import "../stylesheets/_header.scss";
